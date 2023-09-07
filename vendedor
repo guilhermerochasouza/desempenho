@@ -1,0 +1,45 @@
+const prompt = require('prompt-read')
+
+console.clear()
+// Solicita ao usuário que insira o número de remedios vendidos pelo vendedor
+const numeroDeremedios = parseInt(prompt("Insira o número de remedios vendidos pelo vendedor: "));
+
+// Solicita ao usuário que insira o salário fixo do vendedor
+const salarioFixo = parseFloat(prompt("Insira o salário fixo do vendedor: "));
+
+// Solicita ao usuário que insira o valor recebido por remedio vendido
+const valorPorRemediovendido = parseFloat(prompt("Insira o valor recebido por remedio vendido: "));
+
+// Calcula a comissão baseada no número de remedios vendidos e no valor por remedio vendido
+const valorTotalDeVendas = numeroDeremedios * valorPorRemediovendido;
+
+// Calcula o valor das vendas por ele efetuadas (5% do valor total de vendas)
+const comissao = 0.05 * valorTotalDeVendas;
+
+// Calcula o salário final do vendedor somando o salário fixo, a comissão e o valor das vendas
+const salarioFinal = salarioFixo + comissao;
+
+console.clear()
+
+// Exibe o salário final do vendedor
+console.log("O salário final do vendedor é de R$" + salarioFinal.toFixed(2));
+console.log("O valor total de vendas do vendedor é de R$" + valorTotalDeVendas.toFixed(2));
+
+// Define a média de R$ em vendas
+const valorMedioDeVendas = 3500;
+
+// Avalia o desempenho do vendedor com base na média
+let desempenho;
+
+switch (true) {
+  case valorTotalDeVendas > valorMedioDeVendas:
+    desempenho = "acima da média";
+    break;
+  case valorTotalDeVendas < valorMedioDeVendas:
+    desempenho = "abaixo da média";
+    break;
+  default:
+    desempenho = "igual à média";
+}
+
+console.log('O desempenho do vendedor é ', desempenho);
